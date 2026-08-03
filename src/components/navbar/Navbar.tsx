@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "../container/Container";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -7,8 +8,16 @@ function Navbar() {
       <Container>
         <div className="p-4 flex justify-between items-center flex-row-reverse">
           <ul className="flex space-x-4">
-            <li>خانه</li>
-            <li>فروشگاه</li>
+            <li>
+              <Link to="/" className="hover:text-gray-400">
+                خانه
+              </Link>
+            </li>
+            <li>
+              <Link to="/store" className="hover:text-gray-400">
+                فروشگاه
+              </Link>
+            </li>
           </ul>
 
           <div>

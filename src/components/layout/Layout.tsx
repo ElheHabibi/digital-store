@@ -8,8 +8,8 @@ interface layout {
 function Layout({ children }: layout) {
   return (
     <>
-      {children}
       <Navbar />
+      {children}
     </>
   );
 }
