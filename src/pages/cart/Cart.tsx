@@ -23,7 +23,7 @@ function Cart() {
 
       </div>
       <div className="py-2 px-4">
-        <Button>
+        <Button variant="primary">
           ثبت سفارش
         </Button>
         </div>        

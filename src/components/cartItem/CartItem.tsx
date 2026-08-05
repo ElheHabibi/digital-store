@@ -13,11 +13,11 @@ function CartItem() {
         <p>قیمت: 300,000,000</p>
       </div>
       <div className="flex gap-4">
-        <Button>-</Button>
+        <Button variant="outline">-</Button>
         <span>تعداد</span>
-        <Button>+</Button>
+        <Button variant="outline">+</Button>
       </div>
-      <Button>حذف</Button>
+      <Button variant="danger">حذف</Button>
     </div>
   );
 }
