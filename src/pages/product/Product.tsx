@@ -1,40 +1,39 @@
-import React from "react";
+import React, { useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
-import image from "../../assets/iphone.webp";
 import Container from "../../components/container/Container";
 import Button from "../../components/button/Button";
+import { getProduct } from "../../services/api";
+import type { IProduct } from "../../types/server";
 
 function Product() {
-  const params = useParams();
+  const params = useParams<{ id: string }>();
+  const [product, setProduct] = useState<IProduct>();
+  useEffect(() => {
+    getProduct(params.id as string).then((data) => setProduct(data.data));
+  }, []);
   return (
     <>
       <Container>
-        <p>Product ID: {params.id}</p>
-
-        <div className="grid grid-cols-10 mt-5 gap-3 h-2000000">
-          <div className="col-span-6 flex flex-col justify-between">
-            <h1 className="font-bold text-right mt-4">نام محصول</h1>
-            <p className="text-gray-500 text-right">
-              توضیحات محصول: Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Quia aliquam delectus voluptates non. Incidunt in fuga porro
-              temporibus ab, ipsum recusandae hic debitis, fugit molestias minus
-              harum ratione officiis tenetur laborum reprehenderit eos
-              voluptates obcaecati esse nisi, a magnam. Suscipit.
+        <div className="grid grid-cols-10 mt-5 gap-10 h-2000000 bg-gray-50 p-4 rounded">
+          <div className="col-span-6 flex flex-col justify-between gap-4">
+            <h1 className="font-bold mt-4">{product?.title}</h1>
+            <p className="text-gray-500">
+              {product?.description}
             </p>
-            <p className="text-lg font-bold text-right text-red-700">
-              قیمت: 300,000000 تومان
+            <p className="text-lg font-bold text-red-700">
+              {product?.price}
             </p>
 
-             <Button
-            onClick={() => {
-              alert("Added!");
-            }}
-          >
-            افزودن به سبد خرید
-          </Button>
+            <Button variant="primary"
+              onClick={() => {
+                alert("Added!");
+              }}
+            >
+              Add To Cart
+            </Button>
           </div>
 
-          <img src={image} alt="" className="col-span-4" />
+          <img src={product?.image} alt="Product image" className="col-span-4 p-4" />
         </div>
       </Container>
     </>

@@ -3,10 +3,10 @@ import ProductItem from "../../components/productItem/ProductItem";
 import Container from "../../components/container/Container";
 import { Link } from "react-router-dom";
 import { getProducts } from "../../services/api";
-import type { Products } from "../../types/server";
+import type { IProduct } from "../../types/server";
 
 function Store() {
-  const [products, setProducts] = useState<Products[]>([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
   useEffect(() => {
     getProducts().then((result) => {
       setProducts(result.data);
