@@ -21,34 +21,43 @@ function Product() {
     <>
       <Container>
         <div className="grid grid-cols-10 mt-5 gap-10 h-2000000 bg-gray-50 p-4 rounded">
-          <div className="col-span-6 flex flex-col justify-between gap-4">
+          <div className="col-span-6 flex flex-col justify-between gap-4 items-center p-4">
             <h1 className="font-bold mt-4">{product?.title}</h1>
-            <p className="text-gray-500">{product?.description}</p>
-            <p className="text-lg font-bold text-red-700">{product?.price}</p>
+            <p className="text-gray-700">{product?.description}</p>
+            <p className="text-lg font-bold text-red-700">{product?.price}$</p>
 
-            <Button
-              variant="primary"
-              onClick={() => {
-                handleIncreaseProductQty(parseInt(params.id as string));
-              }}
-            >
-              Add To Cart
-            </Button>
+            {getProductQty(parseInt(params.id as string)) == 0 ? (
+              <Button
+                variant="primary"
+                onClick={() => {
+                  handleIncreaseProductQty(parseInt(params.id as string));
+                }}
+              >
+                Add To Cart
+              </Button>
+            ) : (
+              <div className="flex justify-between w-1/2 p-4">
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    handleDecreaseProductQty(parseInt(params.id as string));
+                  }}
+                >
+                  -
+                </Button>
 
-            <p> 
-              {
-                getProductQty(parseInt(params.id as string))
-              }
-            </p>
-            
-            <Button
-              variant="outline"
-              onClick={() => {
-                handleDecreaseProductQty(parseInt(params.id as string));
-              }}
-            >
-              -
-            </Button>
+                <span>{getProductQty(parseInt(params.id as string))}</span>
+
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    handleIncreaseProductQty(parseInt(params.id as string));
+                  }}
+                >
+                  +
+                </Button>
+              </div>
+            )}
           </div>
 
           <img
