@@ -1,8 +1,12 @@
 import Button from "../../components/button/Button";
 import CartItem from "../../components/cartItem/CartItem";
 import Container from "../../components/container/Container";
+import { useShoppingCartContext } from "../../context/ShoppingCartContext";
 
 function Cart() {
+
+  const {cartItems} = useShoppingCartContext()
+
   return (
     <Container>
       <div className=" mt-10 gap-4">

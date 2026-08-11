@@ -1,6 +1,6 @@
 import React, { type ComponentProps } from "react";
 
-type TVariant = "primary" | "secondary" | "danger" | "success" | "warning";
+type TVariant = "primary" | "secondary" | "danger" | "success" | "warning" | "outline";
 type Button = ComponentProps<"button"> & {
   variant: TVariant;
 };
