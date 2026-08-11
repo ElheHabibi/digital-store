@@ -10,9 +10,12 @@ function Product() {
   const params = useParams<{ id: string }>();
   const [product, setProduct] = useState<IProduct>();
 
-  const { handleIncreaseProductQty } = useShoppingCartContext();
-  const { handleDecreaseProductQty } = useShoppingCartContext();
-  const { getProductQty } = useShoppingCartContext();
+  const {
+    handleIncreaseProductQty,
+    handleDecreaseProductQty,
+    getProductQty,
+    handleRemoveProduct,
+  } = useShoppingCartContext();
 
   useEffect(() => {
     getProduct(params.id as string).then((data) => setProduct(data.data));
@@ -21,7 +24,7 @@ function Product() {
     <>
       <Container>
         <div className="grid grid-cols-10 mt-5 gap-10 h-2000000 bg-gray-50 p-4 rounded">
-          <div className="col-span-6 flex flex-col justify-between gap-4 items-center p-4">
+          <div className="col-span-6 flex flex-col justify-between gap-4 p-4">
             <h1 className="font-bold mt-4">{product?.title}</h1>
             <p className="text-gray-700">{product?.description}</p>
             <p className="text-lg font-bold text-red-700">{product?.price}$</p>
@@ -36,7 +39,7 @@ function Product() {
                 Add To Cart
               </Button>
             ) : (
-              <div className="flex justify-between w-1/2 p-4">
+              <div className="flex justify-between p-4">
                 <Button
                   variant="outline"
                   onClick={() => {
@@ -55,6 +58,16 @@ function Product() {
                   }}
                 >
                   +
+                </Button>
+
+                <Button
+                  className="ml-20"
+                  variant="danger"
+                  onClick={() => {
+                    handleRemoveProduct(parseInt(params.id as string));
+                  }}
+                >
+                  remove
                 </Button>
               </div>
             )}

@@ -1,7 +1,7 @@
 import React from "react";
-import type { Products } from "../../types/server";
+import type { IProduct } from "../../types/server";
 
-type TProductItem = Products;
+type TProductItem = IProduct;
 
 function ProductItem({ title, price, description, image }: TProductItem) {
   return (
