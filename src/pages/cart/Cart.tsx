@@ -5,16 +5,15 @@ import { useShoppingCartContext } from "../../context/ShoppingCartContext";
 
 function Cart() {
 
-  const {cartItems} = useShoppingCartContext()
+  const {cartItems} = useShoppingCartContext();
+
 
   return (
     <Container>
       <div className=" mt-10 gap-4">
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
+        {
+          cartItems.map(item => <CartItem {...item}/>)
+        }
       </div>
 
 

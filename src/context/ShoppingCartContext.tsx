@@ -15,7 +15,7 @@ interface IShoppingCartContext {
   handleDecreaseProductQty: (id: number) => void;
   getProductQty: (id: number) => number;
   handleRemoveProduct: (id: number) => void;
-  cartQty: number
+  cartQty: number;
 }
 
 const ShoppingCartContext = createContext({} as IShoppingCartContext);

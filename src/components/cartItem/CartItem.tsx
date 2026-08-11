@@ -1,23 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../button/Button";
-import image from "../../assets/iphone.webp";
+import type { IProduct } from "../../types/server";
+import { getProduct } from "../../services/api";
+import { useShoppingCartContext } from "../../context/ShoppingCartContext";
+import { Link } from "react-router-dom";
 
-function CartItem() {
+interface ICartItem {
+  id: number;
+  qty: number;
+}
+
+function CartItem({ id, qty }: ICartItem) {
+  const [product, setProduct] = useState<IProduct>();
+  useEffect(() => {
+    getProduct(id).then((result) => {
+      setProduct(result.data);
+    });
+  }, []);
+
+  const {handleDecreaseProductQty, handleIncreaseProductQty, handleRemoveProduct } = useShoppingCartContext();
+
   return (
-    <div className="flex flex-row-reverse justify-between gap-4 items-center border-b py-4">
-      <div className="w-20 h-20">
-        <img src={image} alt="Product" />
+    <div className="flex flex-row-reverse justify-between gap-4 items-center border-b p-8 my-4">
+      <div className="w-20 h-20 flex items-center">
+        <Link to={`/product/${id}`}>
+        <img src={product?.image} alt="Product" />
+        </Link>
       </div>
-      <div>
-        <h3>نام محصول</h3>
-        <p>قیمت: 300,000,000</p>
+      <div className="flex items-center">
+        <h3>{product?.price}$</h3>
       </div>
-      <div className="flex gap-4">
-        <Button variant="outline">-</Button>
-        <span>تعداد</span>
-        <Button variant="outline">+</Button>
+      <div className="flex gap-4 items-center">
+        <Button variant="outline" onClick={()=> {handleDecreaseProductQty(id)}}>-</Button>
+        <span>{qty}</span>
+        <Button variant="outline" onClick={()=>handleIncreaseProductQty(id)}>+</Button>
       </div>
-      <Button variant="danger">حذف</Button>
+      <Button variant="danger" onClick={()=>{handleRemoveProduct(id)}}>Remove</Button>
     </div>
   );
 }
