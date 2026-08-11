@@ -12,6 +12,7 @@ function Product() {
 
   const { handleIncreaseProductQty } = useShoppingCartContext();
   const { handleDecreaseProductQty } = useShoppingCartContext();
+  const { getProductQty } = useShoppingCartContext();
 
   useEffect(() => {
     getProduct(params.id as string).then((data) => setProduct(data.data));
@@ -34,6 +35,12 @@ function Product() {
               Add To Cart
             </Button>
 
+            <p> 
+              {
+                getProductQty(parseInt(params.id as string))
+              }
+            </p>
+            
             <Button
               variant="outline"
               onClick={() => {
