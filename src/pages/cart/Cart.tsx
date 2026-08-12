@@ -1,4 +1,3 @@
-// Cart.tsx
 import { useEffect, useState } from "react";
 import Button from "../../components/button/Button";
 import CartItem from "../../components/cartItem/CartItem";
