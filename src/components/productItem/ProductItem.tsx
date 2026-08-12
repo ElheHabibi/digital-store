@@ -1,7 +1,7 @@
 import React from "react";
-import type { Products } from "../../types/server";
+import type { IProduct } from "../../types/server";
 
-type TProductItem = Products;
+type TProductItem = IProduct;
 
 function ProductItem({ title, price, description, image }: TProductItem) {
   return (
@@ -12,7 +12,7 @@ function ProductItem({ title, price, description, image }: TProductItem) {
 
       <div className="flex flex-col justify-between p-4 gap-4">
         <h2 className="line-clamp-1 overflow-clip">{title} </h2>
-        <p className="text-pink-600">{price}</p>
+        <p className="text-pink-600">{price}$</p>
         <p className="text-gray-500 line-clamp-2 overflow-clip">
           {description}
         </p>

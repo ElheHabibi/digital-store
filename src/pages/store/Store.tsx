@@ -21,7 +21,7 @@ function Store() {
           {
             products.map((product)=>{
               return (
-                <Link to={`product/${product.id}`} key={product.id}>
+                <Link to={`/product/${product.id}`} key={product.id}>
                   <ProductItem {...product}/>
                 </Link>
               );
