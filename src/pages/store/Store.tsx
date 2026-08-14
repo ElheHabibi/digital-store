@@ -18,7 +18,7 @@ function Store() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-8">
 
-            <h1 className="font-bold text-blue-600 md:text-4x uppercase tracking-[0.2em]">
+            <h1 className="font-bold text-blue-600 md:text-4xl uppercase tracking-[0.2em]">
               all products
             </h1>
 

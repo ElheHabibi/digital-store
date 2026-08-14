@@ -66,8 +66,6 @@ export function ShoppingCartProvider({ children }: IShoppingCartProvider) {
     });
   };
 
-  console.log(cartItems);
-
   const getProductQty = (id: number) => {
     return cartItems.find((item) => item.id == id)?.qty || 0;
   };

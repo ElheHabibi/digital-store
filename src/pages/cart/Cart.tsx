@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "../../components/button/Button";
 import CartItem from "../../components/cartItem/CartItem";
-import Container from "../../components/container/Container";
 import { useShoppingCartContext } from "../../context/ShoppingCartContext";
 import { getProducts } from "../../services/api";
 import type { IProduct } from "../../types/server";
@@ -12,7 +11,6 @@ function Cart() {
 
   useEffect(() => {
     getProducts().then((result) => {
-      console.log("products:", result.data);
       setProducts(result.data);
     });
   }, []);
@@ -23,30 +21,57 @@ function Cart() {
   }, 0);
 
   return (
-    <Container>
-      <div className=" mt-10 gap-4">
-        {cartItems.map((item) => (
-          <CartItem key={item.id} {...item} />
-        ))}
-      </div>
+    <div className="min-h-screen bg-slate-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
 
-      {totalPrice ? (
-        <>
-          <div className=" flex justify-around items-center p-4 mt-40 mb-20">
-            <p>
-              <span className="text-blue-700 font-bold">Total Price: </span>
-              {totalPrice.toLocaleString()} $
-            </p>
+        <div className="mb-8">
+          <h1 className="font-bold text-blue-600 md:text-4xl uppercase tracking-[0.2em]">
+            shopping cart
+          </h1>
+          <p className="mt-2 text-sm text-gray-600 md:text-base">
+            Review your selected items and proceed to checkout.
+          </p>
+        </div>
 
-            <div className="py-2 px-4">
-              <Button variant="primary">Buy Now!</Button>
+        {cartItems.length > 0 ? (
+          <>
+            <div className="space-y-4 mb-8">
+              {cartItems.map((item) => (
+                <CartItem key={item.id} {...item} />
+              ))}
             </div>
+
+            <div className="rounded-lg shadow-md p-6 sticky bottom-0 bg-gray-200">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                
+                <div>
+                  <p className="text-lg">
+                    <span className="text-blue-600 font-bold">
+                      Total Price:
+                    </span>
+                    <span className="text-2xl font-bold text-gray-800">
+                      {totalPrice.toLocaleString()} $
+                    </span>
+                  </p>
+                </div>
+
+                <div className="py-2 px-6">
+                  <Button variant="primary">Buy Now!</Button>
+                </div>
+
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="bg-white rounded-lg shadow-md p-8 text-center">
+            <p className="text-lg text-gray-600">Your cart is empty</p>
+            <p className="text-sm text-gray-500 mt-2">
+              Start adding items from the store to get started!
+            </p>
           </div>
-        </>
-      ) : (
-        <p className="text-center">Nothing is added!</p>
-      )}
-    </Container>
+        )}
+      </div>
+    </div>
   );
 }
 
