@@ -25,7 +25,6 @@ export const useShoppingCartContext = () => useContext(ShoppingCartContext);
 export function ShoppingCartProvider({ children }: IShoppingCartProvider) {
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>("cartItems" ,[]);
 
-  localStorage.setItem("name", "salar");
 
   const handleIncreaseProductQty = (id: number) => {
     setCartItems((currentItems) => {
