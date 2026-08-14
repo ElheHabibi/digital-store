@@ -1,6 +1,5 @@
 import { useState, type ChangeEvent } from "react";
 import Button from "../../components/button/Button";
-import Container from "../../components/container/Container";
 import { useAuthContext } from "../../context/AuthContext";
 
 function Login() {
@@ -20,7 +19,6 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>)=> {
   };
 
   return (
-    <Container>
       <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-slate-100">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
@@ -97,7 +95,6 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>)=> {
           </p>
         </div>
       </div>
-    </Container>
   );
 }
 

@@ -5,7 +5,7 @@ import { useAuthContext } from "../../context/AuthContext";
 
 function Navbar() {
   const { cartQty } = useShoppingCartContext();
-  const { handleLogout } = useAuthContext();
+  const { handleLogout, isLogin } = useAuthContext();
 
   return (
     <nav className="border-b border-slate-200 shadow-sm">
@@ -62,12 +62,21 @@ function Navbar() {
               ) : null}
             </Link>
 
-            <button
-              onClick={handleLogout}
-              className="rounded-lg border border-blue-600 px-4 py-2 text-sm font-medium text-blue-600 transition-colors hover:bg-blue-600 hover:text-white"
-            >
-              Logout
-            </button>
+            {isLogin ? (
+              <button
+                onClick={handleLogout}
+                className="rounded-lg border border-blue-600 px-4 py-2 text-sm font-medium text-blue-600 transition-colors hover:bg-blue-600 hover:text-white"
+              >
+                Logout
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className="rounded-lg border border-blue-600 px-4 py-2 text-sm font-medium text-blue-600 transition-colors hover:bg-blue-600 hover:text-white"
+              >
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </Container>
