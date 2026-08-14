@@ -4,12 +4,12 @@ type TProductItem = IProduct;
 
 function ProductItem({ title, price, description, image }: TProductItem) {
   return (
-    <div className="h-full rounded-2xl bg-white shadow-sm transition-all duration-200 group-hover:shadow-lg ">
+    <div className="h-full rounded-lg bg-white shadow-sm transition-all duration-200 group-hover:shadow-lg">
       <div className="flex h-56 items-center justify-center p-6 bg-gradient-to-b from-gray-50 via-white to-slate-100">
         <img
           src={image}
           alt={title}
-          className="h-full w-full object-contain transition-transform duration-200 group-hover:scale-105" 
+          className="h-full w-full object-contain transition-transform duration-200 group-hover:scale-105"
         />
       </div>
 

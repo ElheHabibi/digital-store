@@ -27,9 +27,9 @@ function Product() {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-slate-100">
       <Container>
-        <div className="mx-auto max-w-6xl rounded-3xl border border-gray-200 bg-white">
+        <div className="mx-auto max-w-6xl rounded-lg border border-gray-200 bg-white">
           <div className="grid gap-8 p-6 md:grid-cols-2 md:p-10">
-            <div className="flex items-center justify-center rounded-2xl p-6 bg-gradient-to-b from-slate-100 via-white to-slate-100">
+            <div className="flex items-center justify-center rounded-lg p-6 bg-gradient-to-b from-slate-100 via-white to-slate-100">
               <img
                 src={product?.image}
                 alt={"Product image"}
