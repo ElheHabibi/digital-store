@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Button from "../../components/button/Button";
 import CartItem from "../../components/cartItem/CartItem";
 import { useShoppingCartContext } from "../../context/ShoppingCartContext";
 import { getProducts } from "../../services/api";
@@ -41,22 +40,20 @@ function Cart() {
               ))}
             </div>
 
-            <div className="rounded-lg shadow-md p-6 sticky bottom-0 bg-gray-200">
+            <div className="rounded-lg shadow-md p-6 sticky bottom-0 bg-blue-600">
               <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                
-                <div>
-                  <p className="text-lg">
-                    <span className="text-blue-600 font-bold">
-                      Total Price:
+
+                <div className="flex gap-4 items-center">
+                    <span className="text-white font-bold">
+                      Total Price: 
                     </span>
-                    <span className="text-2xl font-bold text-gray-800">
+                    <span className="text-2xl font-bold text-white">
                       {totalPrice.toLocaleString()} $
                     </span>
-                  </p>
                 </div>
 
-                <div className="py-2 px-6">
-                  <Button variant="primary">Buy Now!</Button>
+                <div className="px-8 py-3 text-lg font-medium bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                  <button>Buy Now!</button>
                 </div>
 
               </div>
