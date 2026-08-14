@@ -25,7 +25,7 @@ function Product() {
   const quantity = getProductQty(productId);
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-slate-100">
       <Container>
         <div className="mx-auto max-w-6xl rounded-3xl border border-gray-200 bg-white">
           <div className="grid gap-8 p-6 md:grid-cols-2 md:p-10">

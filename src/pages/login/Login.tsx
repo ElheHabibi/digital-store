@@ -21,7 +21,7 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>)=> {
 
   return (
     <Container>
-      <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-slate-100">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -60,7 +60,7 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>)=> {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm text-gray-700 mb-2"
+                className="block text-sm font-medium text-gray-700 mb-2"
               >
                 Password
               </label>

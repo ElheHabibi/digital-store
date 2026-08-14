@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import ProductItem from "../../components/productItem/ProductItem";
-import Container from "../../components/container/Container";
 import { Link } from "react-router-dom";
 import { getProducts } from "../../services/api";
 import type { IProduct } from "../../types/server";
@@ -16,7 +15,6 @@ function Store() {
 
   return (
     <div className="min-h-screen bg-slate-100 py-12 px-4 sm:px-6 lg:px-8">
-      <Container>
         <div className="mx-auto max-w-7xl">
           <div className="mb-8">
 
@@ -44,7 +42,6 @@ function Store() {
             ))}
           </div>
         </div>
-      </Container>
     </div>
   );
 }
