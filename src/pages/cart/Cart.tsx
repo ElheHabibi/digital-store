@@ -60,9 +60,9 @@ function Cart() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-lg shadow-md p-8 text-center">
+          <div className="text-center mt-40">
             <p className="text-lg text-gray-600">Your cart is empty</p>
-            <p className="text-sm text-gray-500 mt-2">
+            <p className="text-sm text-gray-500">
               Start adding items from the store to get started!
             </p>
           </div>
