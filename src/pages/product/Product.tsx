@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Container from "../../components/container/Container";
 import Button from "../../components/button/Button";
@@ -20,14 +20,26 @@ function Product() {
   useEffect(() => {
     getProduct(params.id as string).then((data) => setProduct(data.data));
   }, []);
+
   return (
-    <>
+    <div className="bg-[#151513] py-32">
       <Container>
-        <div className="grid grid-cols-10 mt-5 gap-10 h-2000000 bg-gray-50 p-4 rounded">
-          <div className="col-span-6 flex flex-col justify-between gap-4 p-4">
-            <h1 className="font-bold mt-4">{product?.title}</h1>
-            <p className="text-gray-700">{product?.description}</p>
-            <p className="text-lg font-bold text-red-700">{product?.price}$</p>
+        <div className="flex flex-col-reverse md:flex-row gap-8 bg-[#1E1E1B] border border-[#2C2C28] rounded p-4 sm:p-6">
+          <div className="flex-1 flex flex-col justify-between gap-4">
+            <div>
+              <p className="text-xs tracking-[0.15em] text-[#E8A33D] mb-2">
+                *** ITEM DETAIL ***
+              </p>
+              <h1 className="text-lg sm:text-xl font-bold text-[#EDEDE8] mb-3">
+                {product?.title}
+              </h1>
+              <p className="text-sm text-[#8A8A82] mb-4">
+                {product?.description}
+              </p>
+              <p className="text-xl font-bold text-[#E8A33D]">
+                {product?.price}$
+              </p>
+            </div>
 
             {getProductQty(parseInt(params.id as string)) == 0 ? (
               <Button
@@ -39,7 +51,7 @@ function Product() {
                 Add To Cart
               </Button>
             ) : (
-              <div className="flex justify-between p-4">
+              <div className="flex items-center gap-3">
                 <Button
                   variant="outline"
                   onClick={() => {
@@ -49,7 +61,9 @@ function Product() {
                   -
                 </Button>
 
-                <span>{getProductQty(parseInt(params.id as string))}</span>
+                <span className="text-[#EDEDE8] w-6 text-center">
+                  {getProductQty(parseInt(params.id as string))}
+                </span>
 
                 <Button
                   variant="outline"
@@ -61,26 +75,27 @@ function Product() {
                 </Button>
 
                 <Button
-                  className="ml-20"
                   variant="danger"
                   onClick={() => {
                     handleRemoveProduct(parseInt(params.id as string));
                   }}
                 >
-                  remove
+                  Remove
                 </Button>
               </div>
             )}
           </div>
 
-          <img
-            src={product?.image}
-            alt="Product image"
-            className="col-span-4 p-4"
-          />
+          <div className="w-full md:w-2/5 bg-gradient-to-b from-[#EDEDE8] to-[#8A8A82] rounded p-6 flex items-center justify-center">
+            <img
+              src={product?.image}
+              alt={product?.title}
+              className="max-h-64 sm:max-h-80 object-contain"
+            />
+          </div>
         </div>
       </Container>
-    </>
+    </div>
   );
 }
 

@@ -10,11 +10,11 @@ function ProductItem({ title, price, description, image }: TProductItem) {
       </div>
 
       <div className="flex flex-col justify-between p-3 sm:p-4 gap-2 sm:gap-3">
-        <h2 className="text-sm text-[#EDEDE8] line-clamp-1 overflow-clip">
+        <h2 className="text-sm text-[#EDEDE8] line-clamp-1">
           {title}
         </h2>
-        <p className="font-mono text-sm text-[#E8A33D]">{price}$</p>
-        <p className="text-xs text-[#8A8A82] line-clamp-2 overflow-clip">
+        <p className="text-sm text-[#E8A33D]">{price}$</p>
+        <p className="text-xs text-[#8A8A82] line-clamp-2">
           {description}
         </p>
       </div>
