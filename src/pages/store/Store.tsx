@@ -24,7 +24,7 @@ function Store() {
   }, []);
 
   return (
-    <div className="bg-background py-8">
+    <div className="py-8">
       <Container>
         <p className="text-xs tracking-[0.15em] text-accent mb-1">
           *** ALL ITEMS ***

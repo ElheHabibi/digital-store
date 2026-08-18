@@ -4,7 +4,6 @@ import Button from "../../components/button/Button";
 
 function Home() {
   return (
-    <div className="bg-background min-h-[calc(100vh-61px)]">
       <Container>
         <div className="text-center py-16 sm:py-24">
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
@@ -60,7 +59,6 @@ function Home() {
           </p>
         </div>
       </Container>
-    </div>
   );
 }
 

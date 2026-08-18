@@ -19,7 +19,7 @@ function Login() {
   };
 
   return (
-    <div className="bg-background min-h-[calc(100vh-61px)] flex items-center py-12">
+    <div className="min-h-[calc(100vh-61px)] flex items-center py-12">
         <div className="w-full max-w-md md:mx-auto mx-6 bg-surface border border-border rounded p-8">
           <p className="text-xs tracking-[0.15em] text-accent mb-1 text-center">
             *** SIGN IN ***
