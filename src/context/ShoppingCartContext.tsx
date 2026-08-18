@@ -1,4 +1,4 @@
-import { createContext, useContext} from "react";
+import { createContext, useContext } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface IShoppingCartProvider {
@@ -23,17 +23,19 @@ const ShoppingCartContext = createContext({} as IShoppingCartContext);
 export const useShoppingCartContext = () => useContext(ShoppingCartContext);
 
 export function ShoppingCartProvider({ children }: IShoppingCartProvider) {
-  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>("cartItems" ,[]);
-
+  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
+    "cartItems",
+    [],
+  );
 
   const handleIncreaseProductQty = (id: number) => {
     setCartItems((currentItems) => {
-      const selectedItem = currentItems.find((item) => item.id == id);
-      if (selectedItem == null) {
+      const selectedItem = currentItems.find((item) => item.id === id);
+      if (selectedItem === null) {
         return [...currentItems, { id: id, qty: 1 }];
       } else {
         return currentItems.map((item) => {
-          if (item.id == id) {
+          if (item.id === id) {
             return {
               ...item,
               qty: item.qty + 1,
@@ -48,12 +50,12 @@ export function ShoppingCartProvider({ children }: IShoppingCartProvider) {
 
   const handleDecreaseProductQty = (id: number) => {
     setCartItems((currentItems) => {
-      const selectedItem = currentItems.find((item) => item.id == id);
+      const selectedItem = currentItems.find((item) => item.id === id);
       if (selectedItem?.qty === 1) {
         return currentItems.filter((item) => item.id !== id);
       } else {
         return currentItems.map((item) => {
-          if (item.id == id) {
+          if (item.id === id) {
             return {
               ...item,
               qty: item.qty - 1,
@@ -66,10 +68,8 @@ export function ShoppingCartProvider({ children }: IShoppingCartProvider) {
     });
   };
 
-  console.log(cartItems);
-
   const getProductQty = (id: number) => {
-    return cartItems.find((item) => item.id == id)?.qty || 0;
+    return cartItems.find((item) => item.id === id)?.qty || 0;
   };
 
   const handleRemoveProduct = (id: number) => {
@@ -78,7 +78,7 @@ export function ShoppingCartProvider({ children }: IShoppingCartProvider) {
     );
   };
 
-    const cartQty = cartItems.reduce((totalQty, item) => totalQty + item.qty, 0);
+  const cartQty = cartItems.reduce((totalQty, item) => totalQty + item.qty, 0);
 
   return (
     <ShoppingCartContext.Provider
@@ -88,7 +88,7 @@ export function ShoppingCartProvider({ children }: IShoppingCartProvider) {
         handleDecreaseProductQty,
         getProductQty,
         handleRemoveProduct,
-        cartQty
+        cartQty,
       }}
     >
       {children}
