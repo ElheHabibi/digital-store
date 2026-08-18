@@ -39,8 +39,8 @@ export function AuthProvider({ children }: IAuthProvider) {
 
   //📌 If I had real API:
 
-  // const handleLogin = () => {
-  //   Login("Elahe", "1234")
+  // const handleLogin = (username: string, password: string) => {
+  //   Login(username, password)
   //     .then((data) => {
   //       localStorage.setItem("token", data.token);
   //       setIsLogin(true);
