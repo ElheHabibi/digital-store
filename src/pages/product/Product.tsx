@@ -22,7 +22,7 @@ function Product() {
   }, [params.id]);
 
   return (
-    <div className="bg-background min-h-[calc(100vh-61px)] py-16">
+    <div className="py-16">
       <Container>
         <div className="flex flex-col-reverse md:flex-row gap-8 bg-surface border border-border rounded p-4 sm:p-6">
           <div className="flex-1 flex flex-col justify-between gap-4">

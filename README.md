@@ -1,75 +1,90 @@
-# React + TypeScript + Vite
+# 🛍️ Digital Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A demo built with **React, TypeScript, and Tailwind CSS**
 
-Currently, two official plugins are available:
+Users can browse products, view product details, manage a persistent shopping cart, and access protected routes through a mock authentication system.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ⚪ Features
+- **Home page**
+- **Store page** listing all products, with loading and error states
+- **Product detail page** with add/remove-from-cart controls
+- **Shopping cart** with quantity management, persisted in `localStorage`
+- **Authentication** (mock login) with protected `/cart` route
+- **Responsive UI**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ⚪ Tech Stack
+| Category      | Technology                          |
+|------------|--------------------------------------|
+| Framework  | React + TypeScript (Vite)            |
+| Routing    | react-router-dom                     |
+| Styling    | Tailwind CSS                         |
+| HTTP client| Axios                                |
+| State      | React Context API                    |
+| Data       | [Fake Store API](https://fakestoreapi.com) |
+| Persistence | LocalStorage |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ⚪ Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
+Make sure you have the following installed:
+- [Node.js](https://nodejs.org/)
+- npm
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+### 1. Clone the repository
+```bash
+git clone https://github.com/ElheHabibi/digital-store.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Navigate to the project
+```bash
+cd digital-store
+```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 3. Install dependencies
+```bash
+npm install
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 4. Start the frontend
+```bash
+npm run dev
+```
+The app will be available at the URL shown by Vite (typically `http://localhost:5173`).
 
+No backend setup needed — the app fetches live data from the public [Fake Store API](https://fakestoreapi.com).
+
+---
+
+## ⚪ API
+The frontend communicates with the public [Fake Store API](https://fakestoreapi.com) using Axios.
+
+The Axios client and API methods are located in:
+```text
+src/services/api.tsx
+```
+
+## ⚪ Routes
+| Path            | Access   | Description                  |
+|-----------------|----------|-------------------------------|
+| `/`             | Public   | Home / landing page           |
+| `/store`        | Public   | Product listing                |
+| `/product/:id`  | Public   | Product detail                 |
+| `/login`        | Public   | Login page                     |
+| `/cart`         | Private  | Shopping cart (requires login)|
+
+---
+
+## ⚪ Production Build
+Create a production build with:
+```bash
+npm run build
+```
+
+To preview the production build locally:
+```bash
+npm run preview
 ```

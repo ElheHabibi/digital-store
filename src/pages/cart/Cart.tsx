@@ -22,7 +22,7 @@ function Cart() {
   }, 0);
 
   return (
-    <div className="bg-background h-[calc(100vh-61px)] py-8">
+    <div className="py-8">
       <Container>
         <p className="text-xs tracking-[0.15em] mb-1 text-foreground">
           *** YOUR CART ***
