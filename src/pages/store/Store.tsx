@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ProductItem from "../../components/productItem/ProductItem";
 import Container from "../../components/container/Container";
 import { Link } from "react-router-dom";
@@ -13,20 +13,22 @@ function Store() {
     });
   }, []);
   return (
-    <div className="p-4 bg-gray-200">
+    <div className="bg-background py-8">
       <Container>
-        <h1 className="text-right mt-5 mb-4">صفحه محصولات</h1>
-        <div className="grid grid-cols-4 gap-4">
-
-          {
-            products.map((product)=>{
-              return (
-                <Link to={`/product/${product.id}`} key={product.id}>
-                  <ProductItem {...product}/>
-                </Link>
-              );
-            })
-          }
+        <p className="text-xs tracking-[0.15em] text-accent mb-1">
+          *** ALL ITEMS ***
+        </p>
+        <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
+          Store
+        </h1>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          {products.map((product) => {
+            return (
+              <Link to={`/product/${product.id}`} key={product.id}>
+                <ProductItem {...product} />
+              </Link>
+            );
+          })}
         </div>
       </Container>
     </div>
