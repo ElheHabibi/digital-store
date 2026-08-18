@@ -31,7 +31,7 @@ export function ShoppingCartProvider({ children }: IShoppingCartProvider) {
   const handleIncreaseProductQty = (id: number) => {
     setCartItems((currentItems) => {
       const selectedItem = currentItems.find((item) => item.id === id);
-      if (selectedItem === null) {
+      if (selectedItem === undefined) {
         return [...currentItems, { id: id, qty: 1 }];
       } else {
         return currentItems.map((item) => {
