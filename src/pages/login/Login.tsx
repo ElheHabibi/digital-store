@@ -1,6 +1,5 @@
 import { useState, type ChangeEvent } from "react";
 import Button from "../../components/button/Button";
-import Container from "../../components/container/Container";
 import { useAuthContext } from "../../context/AuthContext";
 
 function Login() {
@@ -21,8 +20,7 @@ function Login() {
 
   return (
     <div className="bg-background min-h-[calc(100vh-61px)] flex items-center py-12">
-      <Container>
-        <div className="max-w-sm mx-auto bg-surface border border-border rounded p-8">
+        <div className="w-full max-w-md md:mx-auto mx-6 bg-surface border border-border rounded p-8">
           <p className="text-xs tracking-[0.15em] text-accent mb-1 text-center">
             *** SIGN IN ***
           </p>
@@ -57,7 +55,6 @@ function Login() {
             </Button>
           </div>
         </div>
-      </Container>
     </div>
   );
 }

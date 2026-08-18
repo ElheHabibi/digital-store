@@ -13,7 +13,7 @@ function Store() {
     });
   }, []);
   return (
-    <div className="bg-background py-8">
+    <div className="bg-background min-h-[calc(100vh-61px)] py-8">
       <Container>
         <p className="text-xs tracking-[0.15em] text-accent mb-1">
           *** ALL ITEMS ***
