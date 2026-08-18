@@ -16,7 +16,7 @@ function CartItem({ id, qty }: ICartItem) {
     getProduct(id).then((result) => {
       setProduct(result.data);
     });
-  }, []);
+  }, [id]);
 
   const { handleDecreaseProductQty, handleIncreaseProductQty, handleRemoveProduct } = useShoppingCartContext();
 

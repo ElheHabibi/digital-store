@@ -19,26 +19,22 @@ function Product() {
 
   useEffect(() => {
     getProduct(params.id as string).then((data) => setProduct(data.data));
-  }, []);
+  }, [params.id]);
 
   return (
-    <div className="bg-[#151513] py-32">
+    <div className="bg-background min-h-[calc(100vh-61px)] py-16">
       <Container>
-        <div className="flex flex-col-reverse md:flex-row gap-8 bg-[#1E1E1B] border border-[#2C2C28] rounded p-4 sm:p-6">
+        <div className="flex flex-col-reverse md:flex-row gap-8 bg-surface border border-border rounded p-4 sm:p-6">
           <div className="flex-1 flex flex-col justify-between gap-4">
             <div>
-              <p className="text-xs tracking-[0.15em] text-[#E8A33D] mb-2">
+              <p className="text-xs tracking-[0.15em] text-accent mb-2">
                 *** ITEM DETAIL ***
               </p>
-              <h1 className="text-lg sm:text-xl font-bold text-[#EDEDE8] mb-3">
+              <h1 className="text-lg sm:text-xl font-bold text-foreground mb-3">
                 {product?.title}
               </h1>
-              <p className="text-sm text-[#8A8A82] mb-4">
-                {product?.description}
-              </p>
-              <p className="text-xl font-bold text-[#E8A33D]">
-                {product?.price}$
-              </p>
+              <p className="text-sm text-muted mb-4">{product?.description}</p>
+              <p className="text-xl font-bold text-accent">{product?.price}$</p>
             </div>
 
             {getProductQty(parseInt(params.id as string)) == 0 ? (
@@ -61,7 +57,7 @@ function Product() {
                   -
                 </Button>
 
-                <span className="text-[#EDEDE8] w-6 text-center">
+                <span className="text-foreground w-6 text-center">
                   {getProductQty(parseInt(params.id as string))}
                 </span>
 
@@ -86,7 +82,7 @@ function Product() {
             )}
           </div>
 
-          <div className="w-full md:w-2/5 bg-gradient-to-b from-[#EDEDE8] to-[#8A8A82] rounded p-6 flex items-center justify-center">
+          <div className="w-full md:w-2/5 bg-gradient-to-b from-foreground to-muted rounded p-6 flex items-center justify-center">
             <img
               src={product?.image}
               alt={product?.title}

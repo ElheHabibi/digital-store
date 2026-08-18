@@ -1,4 +1,4 @@
-import React, { type ComponentProps } from "react";
+import { type ComponentProps } from "react";
 
 type TVariant = "primary" | "secondary" | "danger" | "success" | "warning" | "outline";
 type Button = ComponentProps<"button"> & {

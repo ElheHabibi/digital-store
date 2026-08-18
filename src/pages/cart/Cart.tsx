@@ -22,9 +22,9 @@ function Cart() {
   }, 0);
 
   return (
-    <div className="bg-background h-[calc(100vh-64px)] py-8">
+    <div className="bg-background h-[calc(100vh-61px)] py-8">
       <Container>
-        <p className="text-xs tracking-[0.15em] mb-1">
+        <p className="text-xs tracking-[0.15em] mb-1 text-foreground">
           *** YOUR CART ***
         </p>
         <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
@@ -41,7 +41,7 @@ function Cart() {
 
             <div className="border-t border-dashed border-border mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
               <p className="text-sm">
-                <span className="text-muted">TOTAL: </span>
+                <span className="text-muted">TOTAL:  </span>
                 <span className="text-accent text-lg font-bold">
                   {totalPrice.toLocaleString()}$
                 </span>

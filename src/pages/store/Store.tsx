@@ -13,12 +13,12 @@ function Store() {
     });
   }, []);
   return (
-    <div className="bg-[#151513] py-8">
+    <div className="bg-background py-8">
       <Container>
-        <p className="text-xs tracking-[0.15em] text-[#E8A33D] mb-1">
+        <p className="text-xs tracking-[0.15em] text-accent mb-1">
           *** ALL ITEMS ***
         </p>
-        <h1 className="text-xl sm:text-2xl font-bold text-[#EDEDE8] mb-6">
+        <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
           Store
         </h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
