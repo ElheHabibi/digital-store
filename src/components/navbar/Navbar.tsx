@@ -2,7 +2,7 @@ import Container from "../container/Container";
 import { Link } from "react-router-dom";
 import { useShoppingCartContext } from "../../context/ShoppingCartContext";
 import { useAuthContext } from "../../context/AuthContext";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.webp";
 
 function Navbar() {
   const { cartQty } = useShoppingCartContext();
